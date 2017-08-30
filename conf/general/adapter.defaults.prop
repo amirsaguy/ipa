@@ -1,0 +1,27 @@
+#GENERAL
+build=1
+
+#ADAPTER
+password.algorithm=SHA-1
+	
+# MAIL
+mail.enabled=false
+#mail.defaultSender=noreplay@xpolog.com
+mail.defaultSender=license@xpolog.com=XpoLog License
+mail.type=text/plain
+
+mail.smtp.host=
+mail.smtp.port=
+mail.smtp.auth=false
+mail.smtp.starttls.enable=false
+mail.smtp.socketFactory.port=
+mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+mail.smtp.socketFactory.fallback=false
+
+
+#DB
+db.connection.timeForReconnect=3600000
+
+#ERRORS
+error.license.duplictaeName=Product with same name already exists
+error.pool.utilized=html:Your current pool has been completely utilized and it is not possible to create additional licenses.<br>Please contact XpoLog Sales (sales@xpolog.com) to expan the pool.

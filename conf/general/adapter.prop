@@ -1,0 +1,4 @@
+mail.enabled=true
+mail.smtp.host=mail.xpolog.com
+mail.smtp.port=25
+

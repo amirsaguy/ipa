@@ -1,0 +1,3 @@
+config.path=conf
+adapterType=file
+root.path=demo

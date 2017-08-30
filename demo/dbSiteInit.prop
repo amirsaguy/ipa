@@ -1,0 +1,6 @@
+config.path=conf
+adapterType=db
+db.driverName=com.mysql.jdbc.Driver
+db.connectionString=jdbc:mysql://localhost:3306/site
+db.username=<USERNAME>
+db.password=<PASSWORD>

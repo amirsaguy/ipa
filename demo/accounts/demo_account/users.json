@@ -1,0 +1,50 @@
+[
+	[
+		"com.ipa.common.accounts.AccountUser", 
+		{
+			"username": "amirsaguy",
+			"email": "amirsaguy@gmail.com",
+			"displayName": "Amir Saguy",
+			"password": "d0ramz0e",
+			"messagingAccounts": [
+				["com.ipa.common.messagingaccounts.mail.MailAccount", {
+					"id": "1",
+					"name": "amirsaguy@gmail.com",
+					"description": "This is my gmail account",
+					"editable": true,
+					"systemAccount": false,
+					"enabled": true,
+					"protocol": "imaps",
+					"host": "imap.gmail.com",
+					"port": "993",
+					"useSSL": true,
+					"user": "amirsaguy",
+					"password": "ami(1411",
+					"folders": [
+						"INBOX",
+						"[Gmail]/Sent Mail"
+					]
+				}],
+				["com.ipa.common.messagingaccounts.mail.MailAccount", {
+					"id": "2",
+					"name": "amirsaguy@yahoo.com",
+					"description": "This is my yahoo account",
+					"editable": true,
+					"systemAccount": false,
+					"enabled": true,
+					"protocol": "imaps",
+					"host": "imap.mail.yahoo.com",
+					"port": "993",
+					"useSSL": true,
+					"user": "amirsaguy",
+					"password": "ami_i4ii",
+					"folders": [
+						"INBOX",
+						"[Gmail]/Sent Mail"
+					]
+				}]
+			],
+			"account": "test"
+		}
+	]
+] 

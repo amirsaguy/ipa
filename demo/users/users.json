@@ -1,0 +1,12 @@
+[
+	[
+		"com.ipa.common.accounts.AccountUser", 
+		{
+			"username" : "admin@ipa.com",
+			"email" : "amirsaguy@gmail.com",
+			"displayName" : "Admin",
+			"password" : "admin",
+			"permission" : "admin"
+		}
+	]
+]	
