@@ -56,6 +56,7 @@ public class IpaTest {
 					fetchRequest.addMessageUidRange(MailFetcher.INBOX_FOLDER, -1, -1);
 					fetchRequest.addMessageUidRange(MailFetcher.SENT_ITEMS_INBOX, 0, 0);
 					fetchRequest.setStripHtml(true);
+					//remark
 					
 					MailFetcher mailFetcher = new MailFetcher(fetchRequest);
 					mailFetcher.init();
