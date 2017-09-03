@@ -211,20 +211,26 @@ public class MailFetcher extends MessageFetcher{
 		mailMessageWrapper.setMailMessage(mailMessage);
 		mailMessageWrapper.setMessageId(messageID);
 		String subject = message.getSubject();
+		//subject
 		mailMessage.setSubject(subject);
+		//timestamp
 		mailMessage.setTimestamp(message.getReceivedDate().getTime());
 		Object content = message.getContent();
 		ParticipantsInfo participantsInfo = getParticipantsList(message);
 		String fromAddress = participantsInfo != null ? participantsInfo.fromAddress : null;
+		//sender
 		mailMessage.setSender(fromAddress);
 		ArrayList<String> recipientsList = participantsInfo != null ? participantsInfo.recipients : null;
 		String recipients = participantsInfo != null ? String.join(",", recipientsList) : null;
+		//recipient
 		mailMessage.setRecipient(recipients);
 		ArrayList<String> ccsList = participantsInfo != null ? participantsInfo.ccs : null;
 		String ccs = participantsInfo != null ? String.join(",", ccsList) : null;
+		//css
 		mailMessage.setCcs(ccs);
 		ArrayList<String> bccsList = participantsInfo != null ? participantsInfo.bccs : null;
 		String bccs = participantsInfo != null ? String.join(",", bccsList) : null;
+		//bccs
 		mailMessage.setBccs(bccs);
 		if (content instanceof Multipart){
 			Multipart multiPart = (Multipart)content;

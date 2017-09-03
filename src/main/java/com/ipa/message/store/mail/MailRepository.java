@@ -9,7 +9,7 @@ import com.ipa.common.message.mail.MailMessage;
 
 public class MailRepository {
 	
-	private static MailRepository current = null;
+	private static volatile MailRepository current = null;
 	
 	private ClassPathXmlApplicationContext ctx = null;
 	private MailMessageDAO mailMessageDAO = null;

@@ -1,7 +1,6 @@
 package com.ipa.common.thread;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 import com.ipa.common.Tag;
@@ -53,7 +52,7 @@ public class MessageThread {
 	}
 
 	public Set<String> getParticipants() {
-		return participants != null ? new HashSet<String>(participants) : null;
+		return participants;
 	}
 
 	public void setParticipants(Set<String> participants) {
@@ -61,7 +60,7 @@ public class MessageThread {
 	}
 
 	public Set<String> getMessagingAccounts() {
-		return messagingAccounts != null ? new HashSet<String>(messagingAccounts) : null;
+		return messagingAccounts;
 	}
 	
 	public void setMessagingAccounts(Set<String> messagingAccounts) {

@@ -96,6 +96,26 @@ public class MailMessage extends Message {
 		return list;
 	}
 	
+	public Set<String> getParticipantsSet(boolean includeSender){
+		HashSet<String> set = new HashSet<String>(); 
+		if (includeSender) {
+			String sender = getSender();
+			if (sender != null) {
+				set.add(sender);
+			}
+		}
+		if (recipient != null && recipient.length() > 0) {
+			set.addAll(Arrays.stream(recipient.split(",")).collect(Collectors.toSet()));
+		}
+		if (ccs != null && ccs.length() > 0) {
+			set.addAll(Arrays.stream(ccs.split(",")).collect(Collectors.toSet()));
+		}
+		if (bccs != null && bccs.length() > 0) {
+			set.addAll(Arrays.stream(bccs.split(",")).collect(Collectors.toSet()));
+		}
+		return set;
+	}
+	
 	public String getCleanSubject() {
 		String result = getSubject();
 		if (result != null && result.length() > 0) {
@@ -105,18 +125,24 @@ public class MailMessage extends Message {
 	}
 	
 	public double matchThread(MessageThread messageThread) {
+		return matchParticipants(messageThread);
+	}
+	
+	protected double matchParticipants(MessageThread messageThread) {
 		double result = 0.0d;
 		if (messageThread != null) {
-			Set<String> participants = messageThread.getParticipants();
-			if (participants != null) {
+			Set<String> messageThreadParticipants = messageThread.getParticipants();
+			if (messageThreadParticipants != null) {
+				Set<String> allRecipients = getParticipantsSet(false);
+				Set<String> participants = new HashSet<String>(messageThreadParticipants);
 				String sender = getSender();
 				if (participants.contains(sender)) {
 					result = 0.5d;
-					participants.remove(sender);
+					if (!allRecipients.contains(sender)) {
+						participants.remove(sender);
+					}
 				}
 				int recipientsSize = participants.size();
-				double delta = 0.5d / (double)recipientsSize;
-				List<String> allRecipients = getParticipantsList(false, false);
 				long matchingRecipients = allRecipients.stream().filter(r -> participants.contains(r)).count();
 				double recipientsMatch = 0.5d * ((double)matchingRecipients / (double)recipientsSize);
 				result += recipientsMatch;
@@ -124,6 +150,11 @@ public class MailMessage extends Message {
 			}
 		}
 		return 0;
+	}
+	
+	public MessageThread createMessageThread() {
+		MessageThread messageThread = new MessageThread();
+		return messageThread;
 	}
 	
 	public String getMessageId() {

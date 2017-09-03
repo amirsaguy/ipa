@@ -50,12 +50,11 @@ public class MessageAnalyzer {
 		return null;
 	}
 	
-	/**
-	 * 
-	 * @param Message
-	 * @return
-	 */
 	public MessageAnalysisResponse analyze(Message message){
+		return null;
+	}
+	
+	public MessageThread createMessageThread(Message message) {
 		return null;
 	}
 

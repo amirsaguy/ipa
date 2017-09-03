@@ -30,6 +30,10 @@ public class Message {
 		return null;
 	}
 	
+	public MessageThread createMessageThread() {
+		return null;
+	}
+	
 	public String getType() {
 		return type;
 	}
